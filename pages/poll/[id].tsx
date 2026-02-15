@@ -22,25 +22,25 @@ export default function Poll() {
 
     const channel = supabase
       .channel('votes')
-      ..on(
-  'postgres_changes' as any,
-  {
-    event: '*',
-    table: 'votes',
-    filter: `poll_id=eq.${pollId}`
-  },
-  () => {
-    fetch(`/api/poll/${pollId}`)
-      .then(res => res.json())
-      .then(setPoll)
-  }
-)
-
+      .on(
+        'postgres_changes' as any,
+        {
+          event: '*',
+          table: 'votes',
+          filter: `poll_id=eq.${pollId}`
+        },
+        () => {
+          fetch(`/api/poll/${pollId}`)
+            .then(res => res.json())
+            .then(setPoll)
+        }
       )
       .subscribe()
 
     return () => {
-      supabase.removeChannel(channel)
+      try {
+        supabase.removeChannel(channel)
+      } catch {}
     }
   }, [pollId])
 
