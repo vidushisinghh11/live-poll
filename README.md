@@ -50,13 +50,13 @@ To reduce repeat or abusive voting, the app includes two independent safeguards.
 
 i) After a user votes, a flag is stored in localStorage for that poll.
 
-ii) What this prevents
+What this prevents
 
-Accidental double voting
+1. Accidental double voting
 
-Refresh-based repeat voting
+2. Refresh-based repeat voting
 
-Multiple clicks from the same browser
+3. Multiple clicks from the same browser
 
 Limitations
 
@@ -85,29 +85,29 @@ ii) VPN usage or frequently changing IPs
 
 iii) Together, these two mechanisms provide reasonable protection for a lightweight polling app without requiring user authentication.
 
-iv) Persistence
+Persistence
 
-v) Polls and votes are stored in a PostgreSQL database.
+1. Polls and votes are stored in a PostgreSQL database.
 
-vi) Refreshing the page does not reset results.
+2. Refreshing the page does not reset results.
 
-vii) Poll links continue to work after the session ends.
+3. Poll links continue to work after the session ends.
 
-viii) Data remains available as long as the database exists.
+4. Data remains available as long as the database exists.
 
-ix) Edge Cases Handled
+ Edge Cases Handled
 
-x) Page refresh during voting
+1. Page refresh during voting
 
-xi) Multiple users voting at the same time
+2. Multiple users voting at the same time
 
-xii) Preventing duplicate votes from the same browser
+3. Preventing duplicate votes from the same browser
 
-xiii) Disabled voting after submission
+4. Disabled voting after submission
 
-xiv) Poll not found handling
+5. Poll not found handling
 
-xv) Optimistic UI updates without breaking real-time sync
+6. Optimistic UI updates without breaking real-time sync
 
 Known Limitations & Future Improvements
 
